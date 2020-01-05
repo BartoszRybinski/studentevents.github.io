@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>StudentEvent</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- <section class="preloader-section">
+    <div class="left-bg"></div>
+    <div class="right-bg"></div>
+    <div class="preloader-container">
+      <img src="img/logo.png" alt="Logo">
+      <div class="dots-container">
+        <div class="dot dot_1"></div>
+        <div class="dot dot_2"></div>
+        <div class="dot dot_3"></div>
+      </div>
+    </div>
+  </section> -->
+  <header>
+    <nav>
+      <div class="logo-container">
+         <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+       </div>
+       <div class="hamburger-btn">
+         <div class="bar bar1"></div>
+         <div class="bar bar2"></div>
+         <div class="bar bar3"></div>
+       </div>
+      <div class="hamburger-menu-container">
+        <div class="btn-close-container">
+           <div class="btn-close bar1"></div>
+           <div class="btn-close bar2"></div>
+        </div>
+        <div class="hamburger-menu-logo">
+           <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+         </div>
+         <div class="hamburger-menu-nav-links">
+           <ul>
+             <li><a href="index.html" class="nav-link">Strona główna</a></li>
+             <li><a href="#" class="nav-link">Wydarzenia</a></li>
+             <li><a href="#" class="nav-link">Kontakt</a></li>
+           </ul>
+         </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Strona główna</a></li>
+        <li><a href="#" class="nav-link">Wydarzenia</a></li>
+        <li><a href="#" class="nav-link">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+      <h1>Partnerzy</h1>
+      <span>z którymi współpracujemy :)</span>
+      <div class="partners-container">
+        <img src="img/up.png" alt="">
+        <div class="partners-content-container">
+          <h3>Uniwersytet Pedagogiczny</h3>
+          <span>Uniwersytet Pedagogiczny im. Komisji Edukacji Narodowej – państwowa uczelnia pedagogiczna w Krakowie. Jest kontynuacją utworzonej 11 maja 1946 Państwowej Wyższej Szkoły Pedagogicznej w Krakowie</span>
+        </div>
+      </div>
+      <div class="partners-container">
+        <img src="img/agh.png" alt="">
+        <div class="partners-content-container">
+          <h3>Akademia Górniczo-Hutnicza</h3>
+          <span>Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie, AGH, nazwa międzynarodowa AGH University of Science and Technology – największa polska uczelnia techniczna.</span>
+        </div>
+      </div>
+      <div class="partners-container">
+        <img src="img/pk.png" alt="">
+        <div class="partners-content-container">
+          <h3>Politechnika Krakowska</h3>
+          <span>Politechnika Krakowska im. Tadeusza Kościuszki – publiczna uczelnia o profilu technicznym w Krakowie. W 2018 r. Politechnika Krakowska znalazła się w światowym rankingu najlepszych szkół wyższych.</span>
+        </div>
+      </div>
+  </main>
+
+
+<script>
+let btnClose = document.querySelector(".btn-close-container");
+let hamburgerBtn = document.querySelector(".hamburger-btn");
+let hamburgerContainer = document.querySelector(".hamburger-menu-container");
+let hamburgerMenuClose = ()=>{
+  hamburgerContainer.style.visibility="hidden";
+  hamburgerContainer.style.opacity="0";
+}
+let hamburgerMenuOpen = ()=>{hamburgerContainer.style.visibility="visible"; hamburgerContainer.style.opacity="1"; hamburgerContainer.style.height="100%"; }
+
+btnClose.addEventListener("click",hamburgerMenuClose);
+hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
+</script>
+</body>
+</html>

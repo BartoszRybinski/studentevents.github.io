@@ -1,0 +1,529 @@
+body
+.preloader-section
+  position: absolute
+  width: 100vw
+  height: 100vh
+  z-index: 100
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  animation: preloader-visibility 1s forwards
+  animation-delay: 2.2s
+  z-index: 1000
+  @keyframes preloader-visibility
+    to
+      visibility: hidden
+  .left-bg
+    top: 0
+    left: 0
+    position: absolute
+    background-color: $white
+    width: 50%
+    height: 100%
+    animation: anim_left_bg 2s forwards
+    animation-delay: 2s
+    @keyframes anim_left_bg
+      to
+        width: 0%
+
+  .right-bg
+    top: 0%
+    left: 50%
+    position: absolute
+    background-color: $white
+    width: 50%
+    height: 100%
+    animation: anim_right_bg 2s forwards
+    animation-delay: 2s
+    @keyframes anim_right_bg
+      to
+        width: 0%
+        left: 100%
+  .preloader-container
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    animation: preloader-opacity 1s forwards
+    animation-delay: 1.6s
+    @keyframes preloader-opacity
+      to
+        opacity: 0
+    img
+      z-index: 1000
+    .dots-container
+      .dot
+        float: left
+        border: 8px solid $main
+        border-radius: 20px
+        margin-left: 10px
+        margin-right: 10px
+        margin-top: 20px
+        opacity: 0.3
+
+      .dot_1
+        animation: anim_dot 1s infinite ease-in-out
+
+      .dot_2
+        animation: anim_dot 1s infinite ease-in-out
+        animation-delay: 0.2s
+      .dot_3
+        animation: anim_dot 1s infinite ease-in-out
+        animation-delay: 0.4s
+      @keyframes anim_dot
+        0%
+          opacity: 0.3
+        10%
+          opacity: 1
+        20%
+          opacity: 0.3
+header
+  nav
+    width: 90vw
+    height: 20vh
+    margin: auto
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .logo-container
+      img
+        min-width: 150px
+        width: 80%
+        height: 80%
+        cursor: pointer
+    .hamburger-btn
+      width: 30px
+      height: 20px
+      position: absolute
+      right: 5%
+      cursor: pointer
+      transition: 0.3s ease-in-out
+      @media(min-width: $medium-devices)
+        opacity: 0
+      .bar
+        width: 30px
+        height: 3px
+        background-color: $main
+        cursor: pointer
+      .bar2
+        margin-top: 5px
+      .bar3
+        margin-top: 5px
+    .hamburger-menu-container
+      top: 0
+      left: 0
+      position: absolute
+      width: 100%
+      opacity: 0
+      visibility: hidden
+      background-color: $main
+      z-index: 999
+      transition: 0.3s ease-in-out
+      .hamburger-menu-logo
+        width: 100%
+        height: 50%
+        background-color: $white
+        display: flex
+        align-items: center
+        justify-content: center
+      .btn-close-container
+        top: 4%
+        right: 0
+        margin: 30px
+        position: absolute
+        cursor: pointer
+        .btn-close
+          width: 2em
+          height: 3px
+          background-color: $main
+        .bar1
+          transform: rotate(45deg)
+        .bar2
+          margin-top: -3px
+          transform: rotate(135deg)
+      .hamburger-menu-nav-links
+        width: 100%
+        height: 50%
+        display: flex
+        ul
+          width: 100%
+          height: 80%
+          margin: auto
+          display: flex
+          flex-direction: column
+          justify-content: space-between
+          align-items: center
+          padding: 0
+          li
+            list-style-type: none
+            a
+              position: relative
+              &:hover:after
+                display: block
+                content: ''
+                height: 2px
+                background-color: $white
+                position: absolute
+                animation: anim 0.5s forwards
+                cursor: pointer
+            .nav-link
+              color: $white
+              text-decoration: none
+              font-size: 1.7em
+    .nav-links
+      display: flex
+      @media(max-width: $medium-devices)
+        visibility: hidden
+        opacity: 0
+      li
+        list-style-type: none
+        margin-left: 8vw
+        @media(max-width: $medium-devices)
+          margin: 0
+        a
+          color: black
+          text-decoration: none
+          position: relative
+          &:hover:after
+            display: block
+            content: ''
+            height: 2px
+            background-color: $main
+            position: absolute
+            animation: anim 0.5s forwards
+            cursor: pointer
+          @keyframes anim
+            0%
+              width: 0
+
+            100%
+              width: 100%
+.hero-section
+  width: 90vw
+  height: 75vh
+  background-image: url("../img/background.png")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  margin: auto
+  position: relative
+  .overlay-background
+    position: absolute
+    height: 100%
+    width: 100%
+    background-color: #34495E
+    opacity: 0.7
+  .hero-section-container
+    width: 75%
+    height: 50%
+    top: 50%
+    left: 50%
+    position: absolute
+    transform: translate(-50%, -50%)
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    @media(max-width: $small-devices)
+      width: 85%
+
+
+    h1
+      width: 70%
+      color: $white
+      text-align: center
+      position: relative
+      font-size: calc(2vw + 2vh + 0.5vmin)
+    .btn-container
+      .btn-primary
+        background-color: $main
+        border: 1px solid $main
+        color: $white
+        width: calc(8vw + 8vh + 5vmin)
+        height: 2.5em
+        cursor: pointer
+        margin-right: 0.5vw
+        position: relative
+        z-index: 1
+        &:after
+          content: ''
+          top: 0
+          left: 0
+          position: absolute
+          background-color: $white
+          width: calc(8vw + 8vh + 5vmin - 2px)
+          height: 0
+          transition: 0.3s ease
+          transition-timing-function: cubic-bezier(0,1.41,.83,.24)
+          z-index: -1
+        &:hover
+          color: $main
+          &:after
+            height: calc(2.5em - 2px)
+      .btn-secondary
+        background-color: transparent
+        border: 1px solid $main
+        color: $main
+        width: calc(8vw + 8vh + 5vmin)
+        height: 2.5em
+        cursor: pointer
+        margin-left: 0.5vw
+        position: relative
+        &:after
+          content: ''
+          top: 0
+          left: -1px
+          position: absolute
+          background-color: $white
+          width: calc(8vw + 8vh + 5vmin - 1px)
+          height: 0
+          transition: 0.3s ease
+          transition-timing-function: cubic-bezier(0,1.41,.83,.24)
+          z-index: -1
+        &:hover
+          color: $main
+          &:after
+            height: calc(2.5em - 2px)
+
+.about-section
+  margin-top: 5vw
+  width: 100%
+  height: 90vh
+  display: flex
+  position: relative
+  @media(max-width: $medium-devices)
+    height: 120vh
+    flex-direction: column
+  h2
+    position: absolute
+    top: 5%
+    width: max-content
+    margin: auto
+    left: 25%
+    font-size: 1.8em
+    transform: translate(-50%)
+    font-weight: $font-light
+    @media(max-width: $medium-devices)
+      left: 50%
+      top: 0%
+      transform: translate(-50%)
+    &:after
+      content: ''
+      height: 2px
+      width: 100%
+      background-color: $main
+      position: absolute
+      display: block
+
+  .about-left-container
+    width: 50%
+    height: 90%
+    margin: auto
+    display: flex
+    align-items: center
+    @media(max-width: $medium-devices)
+      width: 100%
+    .about-icon-container
+      width: 40%
+      height: 80%
+      margin: 30% auto 0% auto
+      text-align: center
+      @media(max-width: $medium-devices)
+        height: 50%
+        margin: auto
+      img
+        width: 15vw
+        height: 15vh
+      h4
+        margin: 2vw auto 1vw auto
+        width: 54%
+        height: 20%
+        @media(max-width: $medium-devices)
+          margin: 2vw auto 3vw auto
+      &:nth-child(2n)
+        h4
+          width: 70%
+
+      span
+        font-size: 0.8em
+
+  .about-right-container
+    width: 50%
+    height: 90%
+    background-color: $main
+    margin: auto
+    display: flex
+    align-items: center
+
+    @media(max-width: $medium-devices)
+      width: 100%
+    .about-icon-container
+      width: 40%
+      height: 80%
+      margin: auto
+      text-align: center
+      color: $white
+      margin: 30% auto 0% auto
+      @media(max-width: $medium-devices)
+        height: 50%
+        margin: auto
+      img
+        width: 15vw
+        height: 15vh
+        fill: $white
+      h4
+        margin: 2vw auto 1vw auto
+        height: 20%
+        width: 60%
+        @media(max-width: $medium-devices)
+          margin: 2vw auto 3vw auto
+      span
+        font-size: 0.8em
+      &:nth-child(2n)
+        h4
+          width: 65%
+.partners-section
+  width: 100%
+  height: 60vh
+  display: flex
+  justify-content: center
+  align-items: center
+  @media(max-width: $small-devices)
+    height: 45vh
+  .partners-container
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-items: center
+    width: 80%
+    height: 100%
+    @media(max-width: $medium-devices)
+      height: 70%
+    h2
+      font-size: 1.7em
+      font-weight: $font-light
+      position: relative
+      &:after
+        content: ''
+        display: block
+        width: 100%
+        height: 2px
+        background-color: $main
+        position: absolute
+
+  .partners-icon-container
+    width: 80%
+    display: flex
+    align-items: center
+    justify-content: space-around
+    @media(max-width: $medium-devices)
+      width: 90%
+    @media(max-width: $small-devices)
+      width: 100%
+    img
+      width: 12vw
+      cursor: pointer
+      @media(max-width: $medium-devices)
+        width: 15vw
+      @media(max-width: $small-devices)
+        width: 18vw
+
+
+footer
+  width: 100%
+  height: 25vh
+  background-color: $main
+  display: flex
+  justify-content: center
+  align-items: center
+  .footer-container
+    height: 80%
+    width: 40%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    @media(max-width: $medium-devices)
+      height: 70%
+    @media(max-width: $small-devices)
+      height: 65%
+      width: 50%
+    h4
+      color: $white
+      font-size: 1.2em
+      font-weight: $font-light
+    .footer-icon-container
+      display: flex
+      width: 100%
+      justify-content: space-around
+      img
+        width: 5vw
+        height: 10vh
+        cursor: pointer
+        @media(max-width: $medium-devices)
+          width: 7vw
+        @media(max-width: $small-devices)
+          width: 9vw
+
+
+// Partners Section //
+main
+  width: 90vw
+  height: max-content
+  margin: auto
+  display: flex
+  flex-direction: column
+  margin-top: -2.5%
+  z-index: 1001
+  @media(max-width: $medium-devices)
+    height: max-content
+  h1
+    align-self: center
+    width: max-content
+    position: relative
+    &:after
+      content: ''
+      width: 100%
+      height: 2px
+      position: absolute
+      background-color: $main
+      display: block
+  span
+    align-self: center
+    margin-bottom: 8%
+  .partners-container
+    display: flex
+    width: 100%
+    justify-content: space-around
+    align-items: center
+    margin-bottom: 8%
+    @media(max-width: $medium-devices)
+      flex-direction: column
+      &:nth-child(2n-1)
+        flex-direction: column-reverse
+    &:nth-child(2n)
+      flex-direction: row-reverse
+      @media(max-width: $medium-devices)
+        flex-direction: column-reverse
+    img
+      width: 40%
+      height: 100%
+      @media(max-width: $medium-devices)
+        width: 60%
+      @media(max-width: $small-devices)
+        width: 80%
+    .partners-content-container
+      width: 40%
+      text-align: center
+      @media(max-width: $medium-devices)
+        width: 60%
+        margin-bottom: 5%
+      @media(max-width: $small-devices)
+        width: 80%
+        span
+          font-size: 0.9em
+      h3
+        color: $main
+        font-size: 1.5em
+        margin-bottom: 2%

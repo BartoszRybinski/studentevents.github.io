@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>StudentEvent</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <section class="preloader-section">
+    <div class="left-bg"></div>
+    <div class="right-bg"></div>
+    <div class="preloader-container">
+      <img src="img/logo.png" alt="Logo">
+      <div class="dots-container">
+        <div class="dot dot_1"></div>
+        <div class="dot dot_2"></div>
+        <div class="dot dot_3"></div>
+      </div>
+    </div>
+  </section>
+  <header>
+    <nav>
+      <div class="logo-container">
+         <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+       </div>
+       <div class="hamburger-btn">
+         <div class="bar bar1"></div>
+         <div class="bar bar2"></div>
+         <div class="bar bar3"></div>
+       </div>
+      <div class="hamburger-menu-container">
+        <div class="btn-close-container">
+           <div class="btn-close bar1"></div>
+           <div class="btn-close bar2"></div>
+        </div>
+        <div class="hamburger-menu-logo">
+           <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+         </div>
+         <div class="hamburger-menu-nav-links">
+           <ul>
+             <li><a href="#" class="nav-link">Wydarzenia</a></li>
+             <li><a href="partners.html" class="nav-link">Partnerzy</a></li>
+             <li><a href="#" class="nav-link">Kontakt</a></li>
+           </ul>
+         </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link">Wydarzenia</a></li>
+        <li><a href="partners.html" class="nav-link">Partnerzy</a></li>
+        <li><a href="#" class="nav-link">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero-section">
+    <div class="overlay-background"></div>
+  <div class="hero-section-container">
+  <h1>Wszystkie wydarzenia w jednym miejscu</h1>
+  <div class="btn-container">
+    <button class="btn-primary">Wydarzenia</button>
+    <button class="btn-secondary">Dodaj</button>
+  </div>
+  </div>
+  </section>
+
+  <section class="about-section">
+    <h2>Jak to działa?</h2>
+    <div class="about-left-container">
+      <div class="about-icon-container">
+        <img src="img/event-icon.svg" alt="polaroid icon">
+        <h4>Dodaj wydarzenie</h4>
+        <span>Formularz jest intuicyjny. Nie ponosisz żadnych kosztów dodająć wydarzenie</span>
+      </div>
+
+      <div class="about-icon-container">
+        <img src="img/notification-icon.svg" alt="polaroid icon">
+        <h4>Sprawdzamy zgłoszenie</h4>
+        <span>Nasi administratorzy weryfikują wydarzenia nadesłane przez Ciebie</span>
+      </div>
+    </div>
+    <div class="about-right-container">
+      <div class="about-icon-container">
+        <img src="img/calendar-icon.svg" alt="polaroid icon">
+        <h4>Wybierz wydarzenie</h4>
+        <span>Nasze wydarzenia są dodawane na bieżąco </span>
+      </div>
+
+      <div class="about-icon-container">
+        <img src="img/globus-icon.svg" alt="polaroid icon">
+        <h4>Rozwijaj społeczność</h4>
+        <span>Nasza firma stale się rozwija i to dzięki Tobie, bo to Ty tworzysz naszą społeczność </span>
+      </div>
+    </div>
+    </div>
+  </section>
+  <section class="partners-section">
+    <div class="partners-container">
+      <h2>Nasi partnerzy</h2>
+      <div class="partners-icon-container">
+        <img src="img/up-logo.png" alt="">
+        <img src="img/up-logo.png" alt="">
+        <img src="img/up-logo.png" alt="">
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-container">
+      <h4>Znajdziesz nas tutaj</h4>
+      <div class="footer-icon-container">
+        <img src="img/facebook-icon.svg" alt="">
+        <img src="img/instagram-icon.svg" alt="">
+        <img src="img/twitter-icon.svg" alt="">
+      </div>
+    </div>
+  </footer>
+<script>
+let btnClose = document.querySelector(".btn-close-container");
+let hamburgerBtn = document.querySelector(".hamburger-btn");
+let hamburgerContainer = document.querySelector(".hamburger-menu-container");
+let hamburgerMenuClose = ()=>{
+  hamburgerContainer.style.visibility="hidden";
+  hamburgerContainer.style.opacity="0";
+}
+let hamburgerMenuOpen = ()=>{
+  hamburgerContainer.style.visibility="visible";
+  hamburgerContainer.style.opacity="1";
+  hamburgerContainer.style.height="100%";
+}
+
+btnClose.addEventListener("click",hamburgerMenuClose);
+hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
+</script>
+</body>
+</html>
