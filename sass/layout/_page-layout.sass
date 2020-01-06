@@ -527,3 +527,127 @@ main
         color: $main
         font-size: 1.5em
         margin-bottom: 2%
+
+
+// Add-event Section //
+.add-event-container
+  width: 70%
+  height: max-content
+  display: flex
+  flex-direction: column
+  margin: auto
+  @media(max-width: $medium-devices)
+    width: 90%
+  h1
+    align-self: center
+    position: relative
+    font-weight: $font-light
+    margin-bottom: 8%
+    @media(max-width: $small-devices)
+      margin-bottom: 10%
+    &:after
+      content: ''
+      position: absolute
+      width: 100%
+      height: 2px
+      background-color: $main
+      display: block
+  input
+    border: none
+    border-bottom: 2px solid $light-gray
+    transition: 0.3s ease-in-out
+    width: 70%
+    margin: auto
+    margin-bottom: 4%
+    padding-bottom: 1%
+    background-color: transparent
+    cursor: pointer
+    @media(max-width: $medium-devices)
+      width: 80%
+      margin-bottom: 7%
+    @media(max-width: $small-devices)
+      width: 90%
+      margin-bottom: 10%
+    &::placeholder
+      color: $dark-gray
+    &:focus
+      border-color: $main
+      &::placeholder
+        color: $main
+  label
+    width: 70%
+    margin: auto
+    color: $light-gray
+    margin-bottom: 2%
+    @media(max-width: $medium-devices)
+      width: 80%
+      margin-bottom: 4%
+    @media(max-width: $small-devices)
+      width: 90%
+  .checkbox-container
+    width: 70%
+    display: flex
+    margin: auto
+    margin-bottom: 4%
+    @media(max-width: $medium-devices)
+      width: 80%
+      margin-bottom: 7%
+    @media(max-width: $small-devices)
+      width: 90%
+      margin-bottom: 10%
+    .checkbox-wrap
+      display: flex
+      width: 30%
+      &:nth-child(2n)
+        margin-left: 10%
+      input
+        margin: auto
+        width: 5%
+  .btn-container
+    width: 70%
+    margin: auto
+    display: flex
+    margin-bottom: 4%
+    @media(max-width: $medium-devices)
+      width: 80%
+      margin-bottom: 7%
+    @media(max-width: $small-devices)
+      width: 90%
+      margin-bottom: 10%
+    .btn-add-photo
+      border: 1px solid $light-gray
+      color: $light-gray
+      width: calc(12vw + 8vh + 5vmin)
+      height: 2.5em
+      cursor: pointer
+      position: relative
+      background-color: transparent
+      &:focus
+        color: $main
+        border-color: $main
+    .btn-primary
+      background-color: $main
+      border: 1px solid $main
+      color: $white
+      width: calc(8vw + 8vh + 5vmin)
+      height: 2.5em
+      cursor: pointer
+      margin-right: 0.5vw
+      position: relative
+      z-index: 1
+      margin: auto
+      &:after
+        content: ''
+        top: 0
+        left: 0
+        position: absolute
+        background-color: $white
+        width: calc(8vw + 8vh + 5vmin - 2px)
+        height: 0
+        transition: 0.3s ease
+        transition-timing-function: cubic-bezier(0,1.41,.83,.24)
+        z-index: -1
+      &:hover
+        color: $main
+        &:after
+          height: calc(2.5em - 2px)
