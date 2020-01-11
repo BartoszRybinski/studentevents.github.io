@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>StudentEvent</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
   <!-- <section class="preloader-section">
@@ -22,10 +24,10 @@
   </section> -->
   <header>
     <nav>
-      <div class="logo-container">
+      <div class="logo-container" data-aos="fade-up">
          <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
        </div>
-       <div class="hamburger-btn">
+       <div class="hamburger-btn" data-aos="fade-up">
          <div class="bar bar1"></div>
          <div class="bar bar2"></div>
          <div class="bar bar3"></div>
@@ -46,7 +48,7 @@
            </ul>
          </div>
       </div>
-      <ul class="nav-links">
+      <ul class="nav-links" data-aos="fade-up">
         <li><a href="index.html" class="nav-link">Strona główna</a></li>
         <li><a href="#" class="nav-link">Wydarzenia</a></li>
         <li><a href="#" class="nav-link">Kontakt</a></li>
@@ -55,23 +57,23 @@
   </header>
 
   <main>
-      <h1>Partnerzy</h1>
-      <span>z którymi współpracujemy :)</span>
-      <div class="partners-container">
+      <h1 data-aos="fade-up">Partnerzy</h1>
+      <span data-aos="fade-up">z którymi współpracujemy :)</span>
+      <div class="partners-container" data-aos="fade-up">
         <img src="img/up.png" alt="">
         <div class="partners-content-container">
           <h3>Uniwersytet Pedagogiczny</h3>
           <span>Uniwersytet Pedagogiczny im. Komisji Edukacji Narodowej – państwowa uczelnia pedagogiczna w Krakowie. Jest kontynuacją utworzonej 11 maja 1946 Państwowej Wyższej Szkoły Pedagogicznej w Krakowie</span>
         </div>
       </div>
-      <div class="partners-container">
+      <div class="partners-container" data-aos="fade-left">
         <img src="img/agh.png" alt="">
         <div class="partners-content-container">
           <h3>Akademia Górniczo-Hutnicza</h3>
           <span>Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie, AGH, nazwa międzynarodowa AGH University of Science and Technology – największa polska uczelnia techniczna.</span>
         </div>
       </div>
-      <div class="partners-container">
+      <div class="partners-container" data-aos="fade-right">
         <img src="img/pk.png" alt="">
         <div class="partners-content-container">
           <h3>Politechnika Krakowska</h3>
@@ -82,6 +84,7 @@
 
 
 <script>
+AOS.init();
 let btnClose = document.querySelector(".btn-close-container");
 let hamburgerBtn = document.querySelector(".hamburger-btn");
 let hamburgerContainer = document.querySelector(".hamburger-menu-container");

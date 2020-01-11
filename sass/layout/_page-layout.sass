@@ -101,6 +101,7 @@ header
       transition: 0.3s ease-in-out
       @media(min-width: $medium-devices)
         opacity: 0
+        visibility: hidden
       .bar
         width: 30px
         height: 3px
@@ -115,10 +116,10 @@ header
       left: 0
       position: absolute
       width: 100%
-      opacity: 0
       visibility: hidden
+      opacity: 0
       background-color: $main
-      z-index: 999
+      z-index: 1001
       transition: 0.3s ease-in-out
       .hamburger-menu-logo
         width: 100%
@@ -246,6 +247,7 @@ header
         margin-right: 0.5vw
         position: relative
         z-index: 1
+
         &:after
           content: ''
           top: 0
@@ -295,26 +297,6 @@ header
   @media(max-width: $medium-devices)
     height: 120vh
     flex-direction: column
-  h2
-    position: absolute
-    top: 5%
-    width: max-content
-    margin: auto
-    left: 25%
-    font-size: 1.8em
-    transform: translate(-50%)
-    font-weight: $font-light
-    @media(max-width: $medium-devices)
-      left: 50%
-      top: 0%
-      transform: translate(-50%)
-    &:after
-      content: ''
-      height: 2px
-      width: 100%
-      background-color: $main
-      position: absolute
-      display: block
 
   .about-left-container
     width: 50%
@@ -324,6 +306,24 @@ header
     align-items: center
     @media(max-width: $medium-devices)
       width: 100%
+    h2
+      position: absolute
+      top: 0
+      left: 50%
+      font-size: 1.8em
+      transform: translate(-50%)
+      font-weight: $font-light
+      @media(max-width: $medium-devices)
+        left: 50%
+        top: 0%
+        transform: translate(-50%)
+      &:after
+        content: ''
+        height: 2px
+        width: 100%
+        background-color: $main
+        position: absolute
+        display: block
     .about-icon-container
       width: 40%
       height: 80%
@@ -530,7 +530,7 @@ main
 
 
 // Add-event Section //
-.add-event-container
+form
   width: 70%
   height: max-content
   display: flex
@@ -555,13 +555,15 @@ main
   input
     border: none
     border-bottom: 2px solid $light-gray
-    transition: 0.3s ease-in-out
     width: 70%
     margin: auto
     margin-bottom: 4%
     padding-bottom: 1%
     background-color: transparent
     cursor: pointer
+    outline-style: none
+    box-shadow: none
+    position: relative
     @media(max-width: $medium-devices)
       width: 80%
       margin-bottom: 7%
@@ -569,7 +571,8 @@ main
       width: 90%
       margin-bottom: 10%
     &::placeholder
-      color: $dark-gray
+      color: $light-gray
+      opacity: 1
     &:focus
       border-color: $main
       &::placeholder
@@ -603,6 +606,9 @@ main
       input
         margin: auto
         width: 5%
+
+
+
   .btn-container
     width: 70%
     margin: auto
@@ -615,16 +621,48 @@ main
       width: 90%
       margin-bottom: 10%
     .btn-add-photo
-      border: 1px solid $light-gray
+      border: none
       color: $light-gray
       width: calc(12vw + 8vh + 5vmin)
       height: 2.5em
       cursor: pointer
       position: relative
       background-color: transparent
-      &:focus
+      outline-style: none
+      box-shadow: inset 0 0 0 1px $light-gray
+      box-sizing: border-box
+      @media(max-width: $small-devices)
+        width: calc(15vw + 12vh + 5vmin)
+      &:before, &:after
+        content: ''
+        width: 0
+        height: 0
+        border: 1px solid transparent
+        position: absolute
+        box-sizing: inherit
+      &:before
+        top: 0
+        left: 0
+      &:after
+        bottom: 0
+        right: 0
+      &:hover
+        &:before
+          border-top-color: $main
+          border-right-color: $main
+          width: 100%
+          height: 100%
+          transition: width 0.25s ease, height 0.25s ease 0.25s
+        &:after
+          border-bottom-color: $main
+          border-left-color: $main
+          width: 100%
+          height: 100%
+          transition: width 0.25s ease 0.5s, height 0.25s ease 0.75s
+
+      &:hover
         color: $main
-        border-color: $main
+        transition: 1s ease
     .btn-primary
       background-color: $main
       border: 1px solid $main
@@ -636,6 +674,10 @@ main
       position: relative
       z-index: 1
       margin: auto
+      outline-style: none
+      box-shadow: none
+      @media(max-width: $small-devices)
+        width: calc(12vw + 12vh + 5vmin)
       &:after
         content: ''
         top: 0

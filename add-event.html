@@ -29,38 +29,38 @@
          <div class="hamburger-menu-nav-links">
            <ul>
              <li><a href="index.html" class="nav-link">Strona główna</a></li>
-             <li><a href="partners.html" class="nav-link">Wydarzenia</a></li>
-             <li><a href="#" class="nav-link">Partnerzy</a></li>
+             <li><a href="#" class="nav-link">Wydarzenia</a></li>
+             <li><a href="partners.html" class="nav-link">Partnerzy</a></li>
            </ul>
          </div>
       </div>
       <ul class="nav-links">
-        <li><a href="#" class="nav-link">Strona główna</a></li>
-        <li><a href="partners.html" class="nav-link">Wydarzenia</a></li>
-        <li><a href="#" class="nav-link">Partnerzy</a></li>
+        <li><a href="index.html" class="nav-link">Strona główna</a></li>
+        <li><a href="#" class="nav-link">Wydarzenia</a></li>
+        <li><a href="partners.html" class="nav-link">Partnerzy</a></li>
       </ul>
     </nav>
   </header>
 
-<div class="add-event-container">
+<form id="form" action="/" method="GET">
   <h1>Dodaj wydarzenie</h1>
-  <input type="text" placeholder="Nazwa wydarzenia *">
-  <input type="text" placeholder="Kto jest organizatorem wydarzenia? *">
-  <input type="text" placeholder="Data *" onfocus="(this.type='date')">
-  <input type="text" placeholder="Godzina *" onfocus="(this.type='time')">
-  <input type="text" placeholder="Adres *">
+  <input type="text" placeholder="Nazwa wydarzenia *" required>
+  <input type="text" placeholder="Kto jest organizatorem wydarzenia? *" required>
+  <input type="text" placeholder="Data *" onfocus="(this.type='date')" required>
+  <input type="text" placeholder="Godzina *" onfocus="(this.type='time')" required>
+  <input type="text" placeholder="Adres *" required>
   <label for="">Cena *</label>
   <div class="checkbox-container">
     <div class="checkbox-wrap">
-      <input type="checkbox" checked>
+      <input type="checkbox" class="checkbox" checked required>
       <label for="">Bezpłatne</label>
     </div>
     <div class="checkbox-wrap">
-      <input type="checkbox">
+      <input type="checkbox" class="checkbox2">
       <label for="">Płatne</label>
     </div>
   </div>
-  <input type="text" class="input-description"placeholder="Opis wydarzenia *">
+  <input type="text" class="input-description" placeholder="Opis wydarzenia *" required>
   <div class="btn-container">
     <button class="btn-add-photo">Dodaj zdjęcie *</button>
   </div>
@@ -69,11 +69,9 @@
     <button class="btn-primary">Wyślij</button>
   </div>
 
-
-</div>
+</form>
 
 <script>
-  // document.getElementById('datePicker').valueAsDate = new Date();
 let btnClose = document.querySelector(".btn-close-container");
 let hamburgerBtn = document.querySelector(".hamburger-btn");
 let hamburgerContainer = document.querySelector(".hamburger-menu-container");
@@ -86,6 +84,33 @@ let hamburgerMenuOpen = ()=>{
   hamburgerContainer.style.opacity="1";
   hamburgerContainer.style.height="100%";
 }
+
+const btnAdd = document.querySelector(".btn-add-photo");
+const checkbox = document.querySelector(".checkbox");
+const checkbox2 = document.querySelector(".checkbox2");
+btnAdd.addEventListener('click', (e) =>{
+  e.preventDefault();
+})
+checkbox.addEventListener('click', ()=>{
+  checkbox2.checked = false;
+})
+checkbox2.addEventListener('click',()=>{
+  checkbox.checked = false;
+  checkbox.removeAttribute("required");
+})
+
+form.addEventListener('submit', (e)=>{
+  let messages = [];
+  if(checkbox.checked == false && checkbox2.checked == false){
+    messages.push("Empty checkbox");
+
+  }
+  if(messages.length > 0) {
+    e.preventDefault();
+  }
+})
+
+
 
 btnClose.addEventListener("click",hamburgerMenuClose);
 hamburgerBtn.addEventListener("click",hamburgerMenuOpen);

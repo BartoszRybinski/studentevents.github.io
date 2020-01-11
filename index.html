@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>StudentEvent</title>
-  <link rel="stylesheet" href="css/main.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
   <section class="preloader-section">
@@ -22,10 +24,10 @@
   </section>
   <header>
     <nav>
-      <div class="logo-container">
+      <div class="logo-container" data-aos="fade-up" data-aos-delay="3000">
          <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
        </div>
-       <div class="hamburger-btn">
+       <div class="hamburger-btn" data-aos="fade-up" data-aos-delay="3000">
          <div class="bar bar1"></div>
          <div class="bar bar2"></div>
          <div class="bar bar3"></div>
@@ -46,7 +48,7 @@
            </ul>
          </div>
       </div>
-      <ul class="nav-links">
+      <ul class="nav-links" data-aos="fade-up" data-aos-delay="3000">
         <li><a href="#" class="nav-link">Wydarzenia</a></li>
         <li><a href="partners.html" class="nav-link">Partnerzy</a></li>
         <li><a href="#" class="nav-link">Kontakt</a></li>
@@ -56,8 +58,8 @@
   <section class="hero-section">
     <div class="overlay-background"></div>
   <div class="hero-section-container">
-  <h1>Wszystkie wydarzenia w jednym miejscu</h1>
-  <div class="btn-container">
+  <h1 data-aos="fade-up" data-aos-delay="3000">Wszystkie wydarzenia w jednym miejscu</h1>
+  <div class="btn-container" data-aos="fade-up" data-aos-offset="0" data-aos-delay="3000">
     <button class="btn-primary">Wydarzenia</button>
     <a href="add-event.html"><button class="btn-secondary">Dodaj</button></a>
   </div>
@@ -65,8 +67,8 @@
   </section>
 
   <section class="about-section">
-    <h2>Jak to działa?</h2>
-    <div class="about-left-container">
+    <div class="about-left-container" data-aos="fade-right">
+      <h2>Jak to działa?</h2>
       <div class="about-icon-container">
         <img src="img/event-icon.svg" alt="polaroid icon">
         <h4>Dodaj wydarzenie</h4>
@@ -79,7 +81,7 @@
         <span>Nasi administratorzy weryfikują wydarzenia nadesłane przez Ciebie</span>
       </div>
     </div>
-    <div class="about-right-container">
+    <div class="about-right-container" data-aos="fade-left">
       <div class="about-icon-container">
         <img src="img/calendar-icon.svg" alt="polaroid icon">
         <h4>Wybierz wydarzenie</h4>
@@ -94,7 +96,7 @@
     </div>
     </div>
   </section>
-  <section class="partners-section">
+  <section class="partners-section" data-aos="fade-up">
     <div class="partners-container">
       <h2>Nasi partnerzy</h2>
       <div class="partners-icon-container">
@@ -105,7 +107,7 @@
     </div>
   </section>
   <footer>
-    <div class="footer-container">
+    <div class="footer-container" data-aos="fade-left">
       <h4>Znajdziesz nas tutaj</h4>
       <div class="footer-icon-container">
         <img src="img/facebook-icon.svg" alt="">
@@ -115,6 +117,7 @@
     </div>
   </footer>
 <script>
+AOS.init();
 let btnClose = document.querySelector(".btn-close-container");
 let hamburgerBtn = document.querySelector(".hamburger-btn");
 let hamburgerContainer = document.querySelector(".hamburger-menu-container");
