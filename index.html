@@ -170,14 +170,16 @@ function createElement(title, organizer, address, hour, i) {
 
 }
 
-createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
+for(let i = 0; i< 4; i++) {
+  createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
+}
 
 // fetch("http://s43.mydevil.net:7777/event/getAllEvents")
 //     .then(resp => resp.json())
 //     .then(resp => {
-//       for(let i = 0; i< 4; i++) {
-//         createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
-//       }
+      // for(let i = 0; i< 4; i++) {
+      //   createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
+      // }
 //         events.removeChild(events.childNodes[5]);
 //     })
 //     .catch(error=>{console.log(error.message)})

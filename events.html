@@ -111,7 +111,9 @@ function createElement(title, organizer, address, hour, i) {
 
 }
 
-createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
+for(let i = 0; i< 10; i++) {
+  createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
+}
 
 // fetch("http://s43.mydevil.net:7777/event/getAllEvents")
 //     .then(resp => resp.json())
