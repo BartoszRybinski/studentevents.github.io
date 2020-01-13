@@ -42,14 +42,14 @@
          </div>
          <div class="hamburger-menu-nav-links">
            <ul>
-             <li><a href="#" class="nav-link">Wydarzenia</a></li>
+             <li><a href="events.html" class="nav-link">Wydarzenia</a></li>
              <li><a href="partners.html" class="nav-link">Partnerzy</a></li>
              <li><a href="#" class="nav-link">Kontakt</a></li>
            </ul>
          </div>
       </div>
       <ul class="nav-links" data-aos="fade-up" data-aos-delay="3000">
-        <li><a href="#" class="nav-link">Wydarzenia</a></li>
+        <li><a href="events.html" class="nav-link">Wydarzenia</a></li>
         <li><a href="partners.html" class="nav-link">Partnerzy</a></li>
         <li><a href="#" class="nav-link">Kontakt</a></li>
       </ul>
@@ -60,7 +60,7 @@
   <div class="hero-section-container">
   <h1 data-aos="fade-up" data-aos-delay="3000">Wszystkie wydarzenia w jednym miejscu</h1>
   <div class="btn-container" data-aos="fade-up" data-aos-offset="0" data-aos-delay="3000">
-    <button class="btn-primary">Wydarzenia</button>
+    <a href="events.html"><button class="btn-primary">Wydarzenia</button></a>
     <a href="add-event.html"><button class="btn-secondary">Dodaj</button></a>
   </div>
   </div>
@@ -96,6 +96,25 @@
     </div>
     </div>
   </section>
+
+  <section class="section-events">
+    <h1 data-aos="fade-up">Nadchodzące wydarzenia</h1>
+    <div class="event-date" data-aos="fade-up">13.01 Poniedziałek </div>
+    <div class="section-container" data-aos="fade-up">
+      <div class="event-container">
+        <img src="../img/up-logo.png" alt="">
+        <div class="content-wrap">
+          <h2></h2>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="event-price">Bezpłatne</span>
+        <button class="btn-primary">Więcej</button>
+      </div>
+    </div>
+  </section>
+
   <section class="partners-section" data-aos="fade-up">
     <div class="partners-container">
       <h2>Nasi partnerzy</h2>
@@ -133,6 +152,46 @@ let hamburgerMenuOpen = ()=>{
 
 btnClose.addEventListener("click",hamburgerMenuClose);
 hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
+
+
+const events = document.querySelector(".section-events");
+
+
+function createElement(title, organizer, address, hour, i) {
+  let my_div = document.querySelector(".section-container");
+  let cln = my_div.cloneNode(true);
+  events.appendChild(cln);
+  let content = document.querySelectorAll(".content-wrap");
+  // h[1].childNodes[1].textContent = pobrane
+    content[i].childNodes[1].textContent = title;
+    content[i].childNodes[2].textContent = `Organizatorem jest ${organizer}`
+    content[i].childNodes[3].textContent = address;
+    content[i].childNodes[4].textContent = `Godzina ${hour}`;
+
+}
+
+fetch("http://s43.mydevil.net:7777/event/getAllEvents")
+    .then(resp => resp.json())
+    .then(resp => {
+      for(let i = 0; i< 4; i++) {
+        createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
+      }
+        events.removeChild(events.childNodes[5]);
+    })
+    .catch(error=>{console.log(error.message)})
+
+
+//
+
+    function noScroll() {
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener('scroll', noScroll);
+    setTimeout(()=>{window.removeEventListener('scroll', noScroll);},2700);
+
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    }
 </script>
 </body>
 </html>
