@@ -56,8 +56,35 @@
     </nav>
   </header>
 
+  <section class="section-details">
+    <div class="section-details-container">
+    <img src="img/banner.png" alt="">
+      <div class="details-content">
+        <span>Nazwa wydarzenia: </span><span class="details-name"></span>
+      </div>
+      <div class="details-content">
+        <span>Organizator: </span><span class="details-organizer"></span>
+      </div>
+      <div class="details-content">
+        <span>Adres: </span><span class="details-address"></span>
+      </div>
+      <div class="details-content">
+        <span>Data i godzina: </span><span class="details-hour"></span>
+      </div>
+      <div class="details-content">
+        <span>Cena: </span><span class="details-price"></span>
+      </div>
+      <div class="details-content">
+        <span>Opis: </span><span class="details-describe">brak</span>
+      </div>
+      <div class="details-content">
+        <span>Link do wydarzenia: </span><span class="details-link"></span>
+      </div>
+    </div>
+  </section>
+
   <section class="section-events">
-    <h1 data-aos="fade-up">Wszystkie wydarzenia</h1>
+    <h1 data-aos="fade-up">Nadchodzące wydarzenia</h1>
     <div class="event-date" data-aos="fade-up">13.01 Poniedziałek </div>
     <div class="section-events-container" data-aos="fade-up">
       <div class="event-container">
@@ -69,7 +96,7 @@
           <span></span>
         </div>
         <span class="event-price">Bezpłatne</span>
-        <a href="#" class="btn-href"><button class="btn-primary">Więcej</button></a>
+        <button class="btn-primary">Więcej</button>
       </div>
     </div>
   </section>
@@ -78,6 +105,10 @@
 
 <script>
 AOS.init();
+const urlParams = new URLSearchParams(window.location.search);
+const urlParam = urlParams.get('event');
+let evPar = parseInt(urlParam);
+
 let btnClose = document.querySelector(".btn-close-container");
 let hamburgerBtn = document.querySelector(".hamburger-btn");
 let hamburgerContainer = document.querySelector(".hamburger-menu-container");
@@ -90,9 +121,21 @@ let hamburgerMenuOpen = ()=>{hamburgerContainer.style.visibility="visible"; hamb
 btnClose.addEventListener("click",hamburgerMenuClose);
 hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
 
+function replaceContent(respName, respOrganizer, respAddress, respHour, respPrice, respLink){
+  let name = document.querySelector(".details-name"),
+      organizer = document.querySelector(".details-organizer"),
+      address = document.querySelector(".details-address"),
+      hour = document.querySelector(".details-hour"),
+      price = document.querySelector(".details-price"),
+      link = document.querySelector(".details-link");
 
-
-
+  name.textContent = respName;
+  organizer.textContent = respOrganizer;
+  address.textContent = respAddress;
+  hour.textContent = respHour
+  price.textContent = respPrice
+  link.textContent = respLink;
+}
 
 
 const events = document.querySelector(".section-events");
@@ -111,20 +154,17 @@ function createElement(title, organizer, address, hour, i) {
 
 }
 
-for(let i = 0; i< 10; i++) {
-  createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
-}
-events.removeChild(events.childNodes[5]);
-// fetch("http://s43.mydevil.net:7777/event/getAllEvents")
-//     .then(resp => resp.json())
-//     .then(resp => {
-//       for(let i = 0; i< 10; i++) {
-//         createElement("Konferencja: Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
-//       }
-//         events.removeChild(events.childNodes[5]);
-//     })
-//     .catch(error=>{console.log(error.message)})
-//
+fetch("http://s43.mydevil.net:7777/event/getAllEvents")
+    .then(resp => resp.json())
+    .then(resp => {
+      replaceContent(resp[evPar].name, resp[evPar].organizer, resp[evPar].adress, resp[evPar].hour, resp[evPar].price, resp[evPar].link);
+      for(let i = 0; i< 4; i++) {
+        createElement(resp[i].name, resp[i].organizer, resp[i].adress, resp[i].hour, i+1);
+      }
+        events.removeChild(events.childNodes[5]);
+    })
+    .catch(error=>{console.log(error.message)})
+
 
 
 </script>

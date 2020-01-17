@@ -8,13 +8,14 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
   <section class="preloader-section">
     <div class="left-bg"></div>
     <div class="right-bg"></div>
     <div class="preloader-container">
-      <img src="img/logo.png" alt="Logo">
+      <img src="img/logo.svg" alt="Logo">
       <div class="dots-container">
         <div class="dot dot_1"></div>
         <div class="dot dot_2"></div>
@@ -25,7 +26,7 @@
   <header>
     <nav>
       <div class="logo-container" data-aos="fade-up" data-aos-delay="3000">
-         <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+         <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
        </div>
        <div class="hamburger-btn" data-aos="fade-up" data-aos-delay="3000">
          <div class="bar bar1"></div>
@@ -38,7 +39,7 @@
            <div class="btn-close bar2"></div>
         </div>
         <div class="hamburger-menu-logo">
-           <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+           <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
          </div>
          <div class="hamburger-menu-nav-links">
            <ul>
@@ -70,28 +71,29 @@
     <div class="about-left-container" data-aos="fade-right">
       <h2>Jak to działa?</h2>
       <div class="about-icon-container">
-        <img src="img/event-icon.svg" alt="polaroid icon">
-        <h4>Dodaj wydarzenie</h4>
-        <span>Formularz jest intuicyjny. Nie ponosisz żadnych kosztów dodająć wydarzenie</span>
+        <a href="events.html"><img src="img/calendar-icon.svg" alt="polaroid icon"></a>
+        <h4>Znajdź wydarzenie</h4>
+        <span>Lista wydarzeń jest stale aktualizowana przez naszych administratorów</span>
       </div>
 
       <div class="about-icon-container">
-        <img src="img/notification-icon.svg" alt="polaroid icon">
-        <h4>Sprawdzamy zgłoszenie</h4>
-        <span>Nasi administratorzy weryfikują wydarzenia nadesłane przez Ciebie</span>
+        <a href="#"><img src="img/globus-icon.svg" alt="polaroid icon"></a>
+        <h4>Rozwijaj społeczność</h4>
+        <span>Nasza firma stale się rozwija i to dzięki Tobie, bo to Ty tworzysz naszą społeczność </span>
       </div>
     </div>
     <div class="about-right-container" data-aos="fade-left">
       <div class="about-icon-container">
-        <img src="img/calendar-icon.svg" alt="polaroid icon">
-        <h4>Wybierz wydarzenie</h4>
-        <span>Nasze wydarzenia są dodawane na bieżąco </span>
+        <a href="add-event.html"><img src="img/event-icon.svg" alt="polaroid icon"></a>
+        <h4>Dodaj wydarzenie </h4>
+        <span>Formularz jest intuicyjny. Nie ponosisz żadnych kosztów dodająć wydarzenie</span>
       </div>
 
       <div class="about-icon-container">
-        <img src="img/globus-icon.svg" alt="polaroid icon">
-        <h4>Rozwijaj społeczność</h4>
-        <span>Nasza firma stale się rozwija i to dzięki Tobie, bo to Ty tworzysz naszą społeczność </span>
+        <a href="#"><img src="img/notification-icon.svg" alt="polaroid icon"></a>
+        <h4>Sprawdzamy  zgłoszenie</h4>
+        <span>Nasi administratorzy weryfikują wydarzenia
+nadesłane przez Ciebie</span>
       </div>
     </div>
     </div>
@@ -100,7 +102,7 @@
   <section class="section-events">
     <h1 data-aos="fade-up">Nadchodzące wydarzenia</h1>
     <div class="event-date" data-aos="fade-up">13.01 Poniedziałek </div>
-    <div class="section-container" data-aos="fade-up">
+    <div class="section-events-container" data-aos="fade-up">
       <div class="event-container">
         <img src="img/up-logo.png" alt="">
         <div class="content-wrap">
@@ -110,7 +112,7 @@
           <span></span>
         </div>
         <span class="event-price">Bezpłatne</span>
-        <button class="btn-primary">Więcej</button>
+        <a href="#" class="btn-href"><button class="btn-primary">Więcej</button></a>
       </div>
     </div>
   </section>
@@ -137,9 +139,11 @@
   </footer>
 <script>
 AOS.init();
-let btnClose = document.querySelector(".btn-close-container");
-let hamburgerBtn = document.querySelector(".hamburger-btn");
-let hamburgerContainer = document.querySelector(".hamburger-menu-container");
+const link = document.querySelectorAll(".btn-href");
+const btnClose = document.querySelector(".btn-close-container");
+const hamburgerBtn = document.querySelector(".hamburger-btn");
+const hamburgerContainer = document.querySelector(".hamburger-menu-container");
+const events = document.querySelector(".section-events");
 let hamburgerMenuClose = ()=>{
   hamburgerContainer.style.visibility="hidden";
   hamburgerContainer.style.opacity="0";
@@ -154,11 +158,8 @@ btnClose.addEventListener("click",hamburgerMenuClose);
 hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
 
 
-const events = document.querySelector(".section-events");
-
-
 function createElement(title, organizer, address, hour, i) {
-  let my_div = document.querySelector(".section-container");
+  let my_div = document.querySelector(".section-events-container");
   let cln = my_div.cloneNode(true);
   events.appendChild(cln);
   let content = document.querySelectorAll(".content-wrap");
@@ -167,35 +168,52 @@ function createElement(title, organizer, address, hour, i) {
     content[i].childNodes[2].textContent = `Organizatorem jest ${organizer}`
     content[i].childNodes[3].textContent = address;
     content[i].childNodes[4].textContent = `Godzina ${hour}`;
-
+}
+function replacePrice(price,i){
+  let eventPrice = document.querySelectorAll(".event-price");
+  if(price == "płatne") {
+    eventPrice[i].textContent = "Płatne";
+  } else {
+    eventPrice[i].textContent = "Bezpłatne";
+  }
 }
 
-for(let i = 0; i< 4; i++) {
-  createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
-}
-events.removeChild(events.childNodes[5]);
-// fetch("http://s43.mydevil.net:7777/event/getAllEvents")
-//     .then(resp => resp.json())
-//     .then(resp => {
-      // for(let i = 0; i< 4; i++) {
-      //   createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
-      // }
-//         events.removeChild(events.childNodes[5]);
-//     })
-//     .catch(error=>{console.log(error.message)})
+function addUrl(url){
 
+  window.location.href = url;
+}
+// for(let i = 0; i< 4; i++) {
+//   createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
+// }
+// events.removeChild(events.childNodes[5]);
+fetch("http://s43.mydevil.net:7777/event/getAllEvents")
+    .then(resp => resp.json())
+    .then(resp => {
+      for(let i = 0; i< 4; i++) {
+        createElement(resp[i].name, resp[i].organizer,resp[i].adress, resp[i].hour, i+1);
+        replacePrice(resp[i].price,i+1);
+      }
+      $('.btn-href').click(function(e){
+          e.preventDefault();
+          addUrl("details.html"+"?event="+$('.btn-href').index(this))
+      });
+        events.removeChild(events.childNodes[5]);
+    })
+    .catch(error=>{console.log(error.message)})
 
 //
 
-    function noScroll() {
-      window.scrollTo(0, 0);
-    }
-    window.addEventListener('scroll', noScroll);
-    setTimeout(()=>{window.removeEventListener('scroll', noScroll);},2700);
+//
 
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    }
+    // function noScroll() {
+    //   window.scrollTo(0, 0);
+    // }
+    // window.addEventListener('scroll', noScroll);
+    // setTimeout(()=>{window.removeEventListener('scroll', noScroll);},2700);
+    //
+    // window.onbeforeunload = function () {
+    //   window.scrollTo(0, 0);
+    // }
 </script>
 </body>
 </html>
