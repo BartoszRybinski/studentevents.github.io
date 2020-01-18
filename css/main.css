@@ -688,6 +688,8 @@ header nav {
     header nav .nav-links li {
       list-style-type: none;
       margin-left: 8vw; }
+      header nav .nav-links li:nth-child(1) {
+        margin-left: 0; }
       @media (max-width: 768px) {
         header nav .nav-links li {
           margin: 0; } }

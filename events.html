@@ -7,21 +7,11 @@
   <title>StudentEvent</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/layout/_events-layout.css">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-  <!-- <section class="preloader-section">
-    <div class="left-bg"></div>
-    <div class="right-bg"></div>
-    <div class="preloader-container">
-      <img src="img/logo.png" alt="Logo">
-      <div class="dots-container">
-        <div class="dot dot_1"></div>
-        <div class="dot dot_2"></div>
-        <div class="dot dot_3"></div>
-      </div>
-    </div>
-  </section> -->
   <header>
     <nav>
       <div class="logo-container" data-aos="fade-up">
@@ -76,57 +66,6 @@
 
 
 
-<script>
-AOS.init();
-let btnClose = document.querySelector(".btn-close-container");
-let hamburgerBtn = document.querySelector(".hamburger-btn");
-let hamburgerContainer = document.querySelector(".hamburger-menu-container");
-let hamburgerMenuClose = ()=>{
-  hamburgerContainer.style.visibility="hidden";
-  hamburgerContainer.style.opacity="0";
-}
-let hamburgerMenuOpen = ()=>{hamburgerContainer.style.visibility="visible"; hamburgerContainer.style.opacity="1"; hamburgerContainer.style.height="100%"; }
-
-btnClose.addEventListener("click",hamburgerMenuClose);
-hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
-
-
-
-
-
-
-const events = document.querySelector(".section-events");
-
-
-function createElement(title, organizer, address, hour, i) {
-  let my_div = document.querySelector(".section-events-container");
-  let cln = my_div.cloneNode(true);
-  events.appendChild(cln);
-  let content = document.querySelectorAll(".content-wrap");
-  // h[1].childNodes[1].textContent = pobrane
-    content[i].childNodes[1].textContent = title;
-    content[i].childNodes[2].textContent = `Organizatorem jest ${organizer}`
-    content[i].childNodes[3].textContent = address;
-    content[i].childNodes[4].textContent = `Godzina ${hour}`;
-
-}
-
-for(let i = 0; i< 10; i++) {
-  createElement("Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
-}
-events.removeChild(events.childNodes[5]);
-// fetch("http://s43.mydevil.net:7777/event/getAllEvents")
-//     .then(resp => resp.json())
-//     .then(resp => {
-//       for(let i = 0; i< 10; i++) {
-//         createElement("Konferencja: Cyberbezpieczeństwo w firmach IT", "Siedlecki Entertainment", "Kraków, Floriańska 3", "21 30", i+1);
-//       }
-//         events.removeChild(events.childNodes[5]);
-//     })
-//     .catch(error=>{console.log(error.message)})
-//
-
-
-</script>
+<script src="js/events.js"></script>
 </body>
 </html>

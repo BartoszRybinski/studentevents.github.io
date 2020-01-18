@@ -10,22 +10,10 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
-  <!-- <section class="preloader-section">
-    <div class="left-bg"></div>
-    <div class="right-bg"></div>
-    <div class="preloader-container">
-      <img src="img/logo.png" alt="Logo">
-      <div class="dots-container">
-        <div class="dot dot_1"></div>
-        <div class="dot dot_2"></div>
-        <div class="dot dot_3"></div>
-      </div>
-    </div>
-  </section> -->
   <header>
     <nav>
       <div class="logo-container" data-aos="fade-up">
-         <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+         <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
        </div>
        <div class="hamburger-btn" data-aos="fade-up">
          <div class="bar bar1"></div>
@@ -83,19 +71,6 @@
   </main>
 
 
-<script>
-AOS.init();
-let btnClose = document.querySelector(".btn-close-container");
-let hamburgerBtn = document.querySelector(".hamburger-btn");
-let hamburgerContainer = document.querySelector(".hamburger-menu-container");
-let hamburgerMenuClose = ()=>{
-  hamburgerContainer.style.visibility="hidden";
-  hamburgerContainer.style.opacity="0";
-}
-let hamburgerMenuOpen = ()=>{hamburgerContainer.style.visibility="visible"; hamburgerContainer.style.opacity="1"; hamburgerContainer.style.height="100%"; }
-
-btnClose.addEventListener("click",hamburgerMenuClose);
-hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
-</script>
+<script src="js/partners.js"></script>
 </body>
 </html>
