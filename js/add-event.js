@@ -59,9 +59,9 @@ $("form").submit(function(event){
     "hour": document.querySelector(".form-hour").value,
     "link": document.querySelector(".form-link").value,
     "price": checkPrice(),
+    "description": document.querySelector(".form-description").value,
     "imgToByteArray": [],
-    "categoryDtos": [],
-    "description": document.querySelector(".form-description").value
+    "categoryDtos": []
   };
 
   const other_params = {
