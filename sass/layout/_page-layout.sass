@@ -722,6 +722,8 @@ form
       input
         margin: auto
         width: 5%
+        -webkit-transform: scale(2)
+        -moz-transform: scale(1.2)        
 
   .btn-container
     width: 70%
@@ -829,3 +831,128 @@ form
     span
       &:nth-child(odd)
         color: $main
+
+.section-community
+  width: 100%
+  height: 75vh
+  overflow: hidden
+  @media(max-width: $small-devices)
+    height: max-content
+  .community-container
+    width: 90%
+    height: 100%
+    margin: auto
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    h1
+      align-self: center
+      width: max-content
+      position: relative
+      margin-top: -2%
+      @media(max-width: $small-devices)
+        margin-top: 5%
+        margin-bottom: 10%
+        font-size: 1.7em
+      &:after
+        content: ''
+        height: 2px
+        width: 100%
+        background-color: $main
+        position: absolute
+        display: block
+    .community-wrap
+      width: 100%
+      height: 50%
+      display: flex
+      @media(max-width: $small-devices)
+        flex-direction: column
+      .community-content
+        width: 30%
+        height: 90%
+        margin: auto
+        display: flex
+        flex-direction: column
+        text-align: center
+        align-items: center
+        justify-content: space-between
+        color: $black
+        font-size: 1em
+        @media(max-width: $small-devices)
+          width: 70%
+          margin-top: 5%
+          margin-bottom: 5%
+
+        img
+          width: 80%
+          @media(max-width: $small-devices)
+            width: 70%
+        span
+          width: 100%
+          height: 35%
+          @media(max-width: $small-devices)
+            margin-top: 10%
+            font-size: 1.2em
+.section-notification
+  width: 100%
+  height: 75vh
+  overflow: hidden
+  @media(max-width: $small-devices)
+    height: max-content
+  .notification-container
+    width: 90%
+    height: 100%
+    margin: auto
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    h1
+      align-self: center
+      width: max-content
+      position: relative
+      margin-top: -2%
+      @media(max-width: $small-devices)
+        margin-top: 5%
+        margin-bottom: 10%
+        font-size: 1.7em
+      &:after
+        content: ''
+        height: 2px
+        width: 100%
+        background-color: $main
+        position: absolute
+        display: block
+    .notification-wrap
+      width: 100%
+      height: 50%
+      display: flex
+      @media(max-width: $small-devices)
+        flex-direction: column
+      .notification-content
+        width: 30%
+        height: 90%
+        margin: auto
+        display: flex
+        flex-direction: column
+        text-align: center
+        align-items: center
+        justify-content: space-between
+        color: $black
+        font-size: 1em
+        @media(max-width: $small-devices)
+          width: 70%
+          margin-top: 5%
+          margin-bottom: 5%
+
+        img
+          width: 30%
+          @media(max-width: $medium-devices)
+            width: 40%
+          @media(max-width: $small-devices)
+            width: 25%
+        span
+          width: 100%
+          height: 35%
+          @media(max-width: $small-devices)
+            margin-top: 10%
+            font-size: 1.2em
