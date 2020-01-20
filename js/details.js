@@ -16,27 +16,44 @@ let hamburgerMenuOpen = ()=>{hamburgerContainer.style.visibility="visible"; hamb
 btnClose.addEventListener("click",hamburgerMenuClose);
 hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
 
-function replaceContent(respName, respOrganizer, respAddress, respHour, respPrice, respLink){
+function replaceContent(respName, respOrganizer,respDate, respAddress, respHour, respPrice, respLink, respDescription){
   let name = document.querySelector(".details-name"),
       organizer = document.querySelector(".details-organizer"),
       address = document.querySelector(".details-address"),
       hour = document.querySelector(".details-hour"),
       price = document.querySelector(".details-price"),
-      link = document.querySelector(".details-link");
+      link = document.querySelector(".details-link"),
+      description = document.querySelector(".details-description");
 
   name.textContent = respName;
   organizer.textContent = respOrganizer;
   address.textContent = respAddress;
-  hour.textContent = respHour
-  price.textContent = respPrice
+  hour.textContent = respDate+" "+respHour;
+  price.textContent = respPrice;
   link.textContent = respLink;
+  link.href = respLink;
+  description.textContent = respDescription;
 }
 
 
 
-function createElement(title, organizer, address, hour, i) {
+function createElement(title, organizer, address, hour, date, i) {
+  let days = ["Niedziela","Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek","Sobota"];
   let my_div = document.querySelector(".section-events-container");
+  let eventDate = document.querySelector(".event-date");
   let cln = my_div.cloneNode(true);
+  let cln2 = eventDate.cloneNode(true);
+  let myDate = new Date(date);
+  let day = myDate.getDate();
+  let month = myDate.getMonth()+1;
+  if(day<10){
+    day = "0"+day
+  }
+  if(month<10){
+    month = "0"+month
+  }
+  cln2.textContent= `${day}.${month} ${days[myDate.getDay()]}`;
+  events.appendChild(cln2);
   events.appendChild(cln);
   let content = document.querySelectorAll(".content-wrap");
   // h[1].childNodes[1].textContent = pobrane
@@ -63,10 +80,10 @@ fetch("http://s43.mydevil.net:7777/event/getAllEvents")
     .then(resp => resp.json())
     .then(resp => {
       for(let i = 0; i< 4; i++) {
-        createElement(resp[i].name, resp[i].organizer,resp[i].adress, resp[i].hour, i+1);
+        createElement(resp[i].name, resp[i].organizer,resp[i].adress, resp[i].hour, resp[i].date, i+1);
         replacePrice(resp[i].price,i+1);
       }
-      replaceContent(resp[evPar].name, resp[evPar].organizer,resp[evPar].adress, resp[evPar].hour, resp[evPar].price, resp[evPar].link);
+      replaceContent(resp[evPar].name, resp[evPar].organizer,resp[evPar].date, resp[evPar].adress, resp[evPar].hour, resp[evPar].price, resp[evPar].link, resp[evPar].description);
       $('.btn-href').click(function(e){
           e.preventDefault();
           addUrl("details.html"+"?event="+$('.btn-href').index(this))

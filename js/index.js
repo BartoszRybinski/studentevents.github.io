@@ -18,9 +18,23 @@ btnClose.addEventListener("click",hamburgerMenuClose);
 hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
 
 
-function createElement(title, organizer, address, hour, i) {
+function createElement(title, organizer, address, hour, date, i) {
+  let days = ["Niedziela","Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek","Sobota"];
   let my_div = document.querySelector(".section-events-container");
+  let eventDate = document.querySelector(".event-date");
   let cln = my_div.cloneNode(true);
+  let cln2 = eventDate.cloneNode(true);
+  let myDate = new Date(date);
+  let day = myDate.getDate();
+  let month = myDate.getMonth()+1;
+  if(day<10){
+    day = "0"+day
+  }
+  if(month<10){
+    month = "0"+month
+  }
+  cln2.textContent= `${day}.${month} ${days[myDate.getDay()]}`;
+  events.appendChild(cln2);
   events.appendChild(cln);
   let content = document.querySelectorAll(".content-wrap");
   // h[1].childNodes[1].textContent = pobrane
@@ -46,7 +60,7 @@ fetch("http://s43.mydevil.net:7777/event/getAllEvents")
     .then(resp => resp.json())
     .then(resp => {
       for(let i = 0; i< 4; i++) {
-        createElement(resp[i].name, resp[i].organizer,resp[i].adress, resp[i].hour, i+1);
+        createElement(resp[i].name, resp[i].organizer,resp[i].adress, resp[i].hour, resp[i].date, i+1);
         replacePrice(resp[i].price,i+1);
       }
       $('.btn-href').click(function(e){
