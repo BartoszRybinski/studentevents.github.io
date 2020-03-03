@@ -663,7 +663,6 @@ main
   transition: 0.5s all ease-in-out
   opacity: 0
   visibility: hidden
-
 form
   width: 70%
   height: max-content
@@ -755,7 +754,7 @@ form
       margin-bottom: 10%
     .checkbox-wrap
       display: flex
-      width: 30%
+      width: 60%
       &:nth-child(2n)
         margin-left: 10%
       input
@@ -846,6 +845,9 @@ form
         transition: 0.3s ease
         transition-timing-function: cubic-bezier(0,1.41,.83,.24)
         z-index: -1
+        @media(max-width: $small-devices)
+          width: calc(11.5vw + 12vh + 5vmin)
+
       &:hover
         color: $main
         &:after

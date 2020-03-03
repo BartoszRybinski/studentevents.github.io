@@ -1471,7 +1471,7 @@ form {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      width: 30%; }
+      width: 60%; }
       form .checkbox-container .checkbox-wrap:nth-child(2n) {
         margin-left: 10%; }
       form .checkbox-container .checkbox-wrap input {
@@ -1580,6 +1580,9 @@ form {
         -o-transition-timing-function: cubic-bezier(0, 1.41, 0.83, 0.24);
         transition-timing-function: cubic-bezier(0, 1.41, 0.83, 0.24);
         z-index: -1; }
+        @media (max-width: 500px) {
+          form .btn-container .btn-primary:after {
+            width: calc(11.5vw + 12vh + 5vmin); } }
       form .btn-container .btn-primary:hover {
         color: #00CEC9; }
         form .btn-container .btn-primary:hover:after {
