@@ -1,22 +1,10 @@
-let btnClose = document.querySelector(".btn-close-container");
-let hamburgerBtn = document.querySelector(".hamburger-btn");
-let hamburgerContainer = document.querySelector(".hamburger-menu-container");
-let hamburgerMenuClose = ()=>{
-  hamburgerContainer.style.visibility="hidden";
-  hamburgerContainer.style.opacity="0";
-}
-let hamburgerMenuOpen = ()=>{
-  hamburgerContainer.style.visibility="visible";
-  hamburgerContainer.style.opacity="1";
-  hamburgerContainer.style.height="100%";
-}
-
-const btnAdd = document.querySelector(".btn-add-photo");
+// const btnAdd = document.querySelector(".btn-add-photo");
 const checkbox = document.querySelector(".checkbox");
 const checkbox2 = document.querySelector(".checkbox2");
-btnAdd.addEventListener('click', (e) =>{
-  e.preventDefault();
-})
+let formConfirm = document.querySelector(".form-confirm");
+// btnAdd.addEventListener('click', (e) =>{
+//   e.preventDefault();
+// })
 checkbox.addEventListener('click', ()=>{
   checkbox2.checked = false;
 })
@@ -36,8 +24,6 @@ form.addEventListener('submit', (e)=>{
   }
 })
 
-btnClose.addEventListener("click",hamburgerMenuClose);
-hamburgerBtn.addEventListener("click",hamburgerMenuOpen);
 
 $("form").submit(function(event){
   event.preventDefault();
@@ -91,8 +77,13 @@ $(".btn-primary").click(()=>{
       }
     }
   }
-  console.log(req);
   if(req==0){
-    window.location.href = "index.html";
+    formConfirm.style.opacity = "1";
+    formConfirm.style.visibility = "visible";
   }
+  setTimeout(function(){
+    if(req==0){
+      window.location.href = "index.html";
+    }
+   }, 3000);
 })

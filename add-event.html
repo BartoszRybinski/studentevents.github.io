@@ -42,7 +42,9 @@
       </ul>
     </nav>
   </header>
-
+<div class="form-confirm">
+  <span>Formularz został wysłany. Za chwilę nastąpi przekierowanie na stronę główną</span>
+</div>
 <form id="form" action="/" method="GET">
   <h1>Dodaj wydarzenie</h1>
   <input type="text" placeholder="Nazwa wydarzenia *" class="form-name" required>
@@ -63,16 +65,16 @@
   </div>
   <!-- <input type="text" class="form-description" placeholder="Opis wydarzenia *" required> -->
   <textarea name="" id="" cols="30" rows="10" class="form-description" placeholder="Opis wydarzenia *" required></textarea>
-  <div class="btn-container">
+  <!-- <div class="btn-container">
     <button class="btn-add-photo">Dodaj zdjęcie *</button>
-  </div>
+  </div> -->
   <input type="text" class="form-link" placeholder="Link do wydarzenia">
   <div class="btn-container">
     <button type="submit" class="btn-primary">Wyślij</button>
   </div>
 
 </form>
-
+<script src="js/mobile-menu.js"></script>
 <script src="js/add-event.js"></script>
 </body>
 </html>
