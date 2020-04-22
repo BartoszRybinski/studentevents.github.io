@@ -1276,14 +1276,14 @@ main {
           -ms-flex-direction: column-reverse;
           flex-direction: column-reverse; } }
     main .partners-container img {
-      width: 40%;
+      width: 30%;
       height: 100%; }
       @media (max-width: 768px) {
         main .partners-container img {
-          width: 60%; } }
+          width: 40%; } }
       @media (max-width: 500px) {
         main .partners-container img {
-          width: 80%; } }
+          width: 50%; } }
     main .partners-container .partners-content-container {
       width: 40%;
       text-align: center; }
