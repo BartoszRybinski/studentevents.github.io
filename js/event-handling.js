@@ -7,13 +7,13 @@ let eventContainer = document.querySelectorAll(".section-events")
 let evPar = parseInt(urlParam);
 
 function createElement(title, organizer, address, hour, date, i) {
-  let days = ["Niedziela","Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek","Sobota"];
+  let days = ["Niedziela","Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa"];
   let my_div = document.querySelector(".section-events-container");
   let eventDate = document.querySelector(".event-date");
   let cln = my_div.cloneNode(true);
   let cln2 = eventDate.cloneNode(true);
-  let myDate = new Date(date);
-  let day = myDate.getDate();
+  let myDate = new Date();
+  let day = myDate.getDate()+date;
   let month = myDate.getMonth()+1;
   if(day<10){
     day = "0"+day
@@ -21,7 +21,7 @@ function createElement(title, organizer, address, hour, date, i) {
   if(month<10){
     month = "0"+month
   }
-  cln2.textContent= `${day}.${month} ${days[myDate.getDay()]}`;
+  cln2.textContent= `${day}.${month} ${days[myDate.getDay()+date]}`;
   events.appendChild(cln2);
   events.appendChild(cln);
   let content = document.querySelectorAll(".content-wrap");
@@ -31,13 +31,17 @@ function createElement(title, organizer, address, hour, date, i) {
     content[i].childNodes[3].textContent = address;
     content[i].childNodes[4].textContent = `Godzina ${hour}`;
 }
+// function replacePrice(price,i){
+//   let eventPrice = document.querySelectorAll(".event-price");
+//   if(price == "Płatne") {
+//     eventPrice[i].textContent = "Płatne";
+//   } else {
+//     eventPrice[i].textContent = "Bezpłatne";
+//   }
+// }
 function replacePrice(price,i){
   let eventPrice = document.querySelectorAll(".event-price");
-  if(price == "płatne") {
-    eventPrice[i].textContent = "Płatne";
-  } else {
-    eventPrice[i].textContent = "Bezpłatne";
-  }
+    eventPrice[i].textContent = price;
 }
 
 function replaceContent(respName, respOrganizer,respDate, respAddress, respHour, respPrice, respLink, respDescription){
@@ -48,11 +52,11 @@ function replaceContent(respName, respOrganizer,respDate, respAddress, respHour,
       price = document.querySelector(".details-price"),
       link = document.querySelector(".details-link"),
       description = document.querySelector(".details-description");
-
+      newDate = new Date();
   name.textContent = respName;
   organizer.textContent = respOrganizer;
   address.textContent = respAddress;
-  hour.textContent = respDate+" "+respHour;
+  hour.textContent = newDate.getDate()+respDate+"/"+newDate.getMonth()+"/"+newDate.getFullYear()+" "+respHour;
   price.textContent = respPrice;
   link.textContent = respLink;
   link.href = respLink;
